@@ -2,13 +2,13 @@
  * Pesquisa no MDN: três formas de usar
  * o método .exec() de RegExp.
  */
-// var myRe1 = /d(b+)d/g;
-// var myArray1 = myRe1.exec('cdbbdbsbz');
+// const myRe1 = /d(b+)d/g;
+// const myArray1 = myRe1.exec('cdbbdbsbz');
 
 /* 
-    var myArray2 = /d(b+)d/g.exec('cdbbdbsbz');
-    var myRe3 = new RegExp('d(b+)d', 'g');
-    var myArray3 = myRe3.exec('cdbbdbsbz');
+    const myArray2 = /d(b+)d/g.exec('cdbbdbsbz');
+    const myRe3 = new RegExp('d(b+)d', 'g');
+    const myArray3 = myRe3.exec('cdbbdbsbz');
     
     console.log(myArray1);
     console.log(myArray2);
@@ -23,50 +23,51 @@
 //Resp: O último índice é 0
 
 //Usando as Substrings entre Parênteses na ER:
-// var re = /(\w+)\s(\w+)/;
-// var str = 'Marcelino Costa';
-// var novaStr = str.replace(re, '$2, $1');
+// const re = /(\w+)\s(\w+)/;
+// const str = 'Marcelino Costa';
+// const novaStr = str.replace(re, '$2, $1');
 // console.log(novaStr);
 
-// var re4 = /\w+\s/g;
-// var re4 = new RegExp('\\w+\\s', 'g');
-// var str4 = 'fee fi fo fum';
-// var myArray4 = str4.match(re4);
+// const re4 = /\w+\s/g;
+// const re4 = new RegExp('\\w+\\s', 'g');
+// const str4 = 'fee fi fo fum';
+// const myArray4 = str4.match(re4);
 // console.log(myArray4);
 
 //Alterando o pedido em uma string de entrada:
-var nomes = 'Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ; Chris Hand ';
+const nomes =
+  'Zoe Silva ;Paula Costa; Maria Leticia ; Angelica Rocha ; Bruna Alba ';
 
-var output = ['---------- String original\n', nomes + '\n'];
+const saida = ['---------- String original\n', nomes + '\n'];
 
-let pattern = /\s*;\s*/;
+let padrao = /\s*;\s*/;
 
-var nomeLista = nomes.split(pattern);
+const nomeLista = nomes.split(padrao);
 
-pattern = /(\w+)\s+(\w+)/;
+padrao = /(\w+)\s+(\w+)/;
 
-var bySurnameList = []; //porLista de Sobrenomes
+const bySurnameList = []; //porLista de Sobrenomes
 
-output.push('---------- Após Separar pela Expressão Regular');
+saida.push('---------- Após Separar pela Expressão Regular');
 
 let i, len;
 for (i = 0, len = nomeLista.length; i < len; i++) {
-  output.push(nomeLista[i]);
-  bySurnameList[i] = nomeLista[i].replace(pattern, '$2, $1');
+  saida.push(nomeLista[i]);
+  bySurnameList[i] = nomeLista[i].replace(padrao, '$2, $1');
 }
 
 //Exibe a nova matriz.
-output.push('---------- Nomes Invertidos');
+saida.push('---------- Nomes Invertidos');
 for (i = 0, len = bySurnameList.length; i < len; i++) {
-  output.push(bySurnameList[i]);
+  saida.push(bySurnameList[i]);
 }
 
 // Classifica pelo sobrenome e exibe a matriz classificada.
 bySurnameList.sort();
-output.push('---------- Ordenado');
+saida.push('---------- Ordenado');
 for (i = 0, len = bySurnameList.length; i < len; i++) {
-  output.push(bySurnameList[i]);
+  saida.push(bySurnameList[i]);
 }
 
-output.push('---------- Fim');
-console.log(output.join('\n'));
+saida.push('---------- Fim');
+console.log(saida.join('\n'));
