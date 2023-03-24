@@ -2,72 +2,71 @@
  * Pesquisa no MDN: três formas de usar
  * o método .exec() de RegExp.
  */
-const myRe1 = /d(b+)d/g;
-const myArray1 = myRe1.exec('cdbbdbsbz');
+// var myRe1 = /d(b+)d/g;
+// var myArray1 = myRe1.exec('cdbbdbsbz');
 
 /* 
-const myArray2 = /d(b+)d/g.exec('cdbbdbsbz');
-const myRe3 = new RegExp('d(b+)d', 'g');
-const myArray3 = myRe3.exec('cdbbdbsbz');
-
-console.log(myArray1);
-console.log(myArray2);
-console.log(myArray3); 
-*/
+    var myArray2 = /d(b+)d/g.exec('cdbbdbsbz');
+    var myRe3 = new RegExp('d(b+)d', 'g');
+    var myArray3 = myRe3.exec('cdbbdbsbz');
+    
+    console.log(myArray1);
+    console.log(myArray2);
+    console.log(myArray3); 
+    */
 
 // console.log('O último índice é ' + myRe1.lastIndex);
 //Resp: O último índice é 5
 
-let myArray = /d(b+)d/g.exec('cdbbdbsbz');
+// let myArray = /d(b+)d/g.exec('cdbbdbsbz');
 // console.log('O último índice é ' + /d(b+)d/g.lastIndex);
 //Resp: O último índice é 0
 
 //Usando as Substrings entre Parênteses na ER:
-const re = /(\w+)\s(\w+)/;
-const str = 'Marcelino Costa';
-const novaStr = str.replace(re, '$2, $1');
+// var re = /(\w+)\s(\w+)/;
+// var str = 'Marcelino Costa';
+// var novaStr = str.replace(re, '$2, $1');
 // console.log(novaStr);
 
-// const re4 = /\w+\s/g;
-const re4 = new RegExp('\\w+\\s', 'g');
-const str4 = 'fee fi fo fum';
-const myArray4 = str4.match(re4);
+// var re4 = /\w+\s/g;
+// var re4 = new RegExp('\\w+\\s', 'g');
+// var str4 = 'fee fi fo fum';
+// var myArray4 = str4.match(re4);
 // console.log(myArray4);
 
 //Alterando o pedido em uma string de entrada:
-const nomes =
-  'Maria Letícia ;Angel Scott ;Helen Roche ;João Costa ;Benedita Silva';
+var nomes = 'Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ; Chris Hand ';
 
-const saida = ['---------- String original\n' + nomes, '\n'];
+var output = ['---------- String original\n', nomes + '\n'];
 
-let padrao = /\s+;\s+/;
+let pattern = /\s*;\s*/;
 
-const nomeLista = nomes.split(padrao);
+var nomeLista = nomes.split(pattern);
 
-padrao = /(\w+)\s+(\w+)/;
+pattern = /(\w+)\s+(\w+)/;
 
-const bySurnameList = []; //porLista de Sobrenomes
+var bySurnameList = []; //porLista de Sobrenomes
 
-saida.push('---------- Após Separar pela Expressão Regular');
+output.push('---------- Após Separar pela Expressão Regular');
 
 let i, len;
 for (i = 0, len = nomeLista.length; i < len; i++) {
-  saida.push(nomeLista[i]);
-  bySurnameList[i] = nomeLista[i].replace(padrao, '$2, $1');
+  output.push(nomeLista[i]);
+  bySurnameList[i] = nomeLista[i].replace(pattern, '$2, $1');
 }
 
 //Exibe a nova matriz.
-saida.push('---------- Nomes Invertidos');
+output.push('---------- Nomes Invertidos');
 for (i = 0, len = bySurnameList.length; i < len; i++) {
-  saida.push(bySurnameList[i]);
+  output.push(bySurnameList[i]);
 }
 
 // Classifica pelo sobrenome e exibe a matriz classificada.
 bySurnameList.sort();
-saida.push('---------- Ordenado');
+output.push('---------- Ordenado');
 for (i = 0, len = bySurnameList.length; i < len; i++) {
-  saida.push(bySurnameList[i]);
+  output.push(bySurnameList[i]);
 }
 
-saida.push('---------- Fim');
-console.log(saida.join('\n'));
+output.push('---------- Fim');
+console.log(output.join('\n'));
