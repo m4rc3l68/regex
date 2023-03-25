@@ -36,13 +36,13 @@
 
 //Alterando o pedido em uma string de entrada:
 const nomes =
-  'Zoe Silva ;Paula Costa; Maria Leticia ; Angelica Rocha ; Bruna Alba ';
+  'Zoe Silva; Paula Costa; Maria Leticia; Angelica Rocha; Bruna Alba';
 
 const saida = ['---------- String original\n', nomes + '\n'];
 
 let padrao = /\s*;\s*/;
 
-const nomeLista = nomes.split(padrao);
+const listaNomes = nomes.split(padrao);
 
 padrao = /(\w+)\s+(\w+)/;
 
@@ -51,9 +51,9 @@ const bySurnameList = []; //porLista de Sobrenomes
 saida.push('---------- Após Separar pela Expressão Regular');
 
 let i, len;
-for (i = 0, len = nomeLista.length; i < len; i++) {
-  saida.push(nomeLista[i]);
-  bySurnameList[i] = nomeLista[i].replace(padrao, '$2, $1');
+for (i = 0, len = listaNomes.length; i < len; i++) {
+  saida.push(listaNomes[i]);
+  bySurnameList[i] = listaNomes[i].replace(padrao, '$2, $1');
 }
 
 //Exibe a nova matriz.
@@ -70,4 +70,5 @@ for (i = 0, len = bySurnameList.length; i < len; i++) {
 }
 
 saida.push('---------- Fim');
+
 console.log(saida.join('\n'));

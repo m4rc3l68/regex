@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RegeExp em JavaScript</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <script type="text/javascript">
+    let er = /\(?\d{3}\)?([-.])\d{5}\1\d{4}/
+    //                 ([-\/\.])
+
+    function testInfo(foneInput) {
+      let OK = er.exec(foneInput.value)
+
+      if (!OK) window.alert(RegExp.input + " Não é em número de telefone com código de área!")
+      else window.alert("Obrigado, o seu número de telefone é " + OK[0])
+    }
+  </script>
 </head>
 
 <body>
-
+  <p>Informe o seu número de telefone (com código de área) e então clique em "Check". <br>O formato esperado é
+    ###-#####-####</p>
+  <form>
+    <input id="fone">
+    <button onclick="testInfo(document.getElementById('fone'))">Check</button>
+  </form>
 </body>
 
 </html>
