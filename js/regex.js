@@ -49,7 +49,7 @@ padrao = /(\w+)\s+(\w+)/;
 const bySurnameList = []; //porLista de Sobrenomes
 
 saida.push('---------- Após Separar pela Expressão Regular');
-
+console.log();
 let i, len;
 for (i = 0, len = listaNomes.length; i < len; i++) {
   saida.push(listaNomes[i]);
